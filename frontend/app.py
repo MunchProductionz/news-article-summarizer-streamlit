@@ -1,6 +1,7 @@
 from client import get_articles, send_email
 import streamlit as st
 import pandas as pd
+import time
 
 articles = get_articles()
 
@@ -34,6 +35,7 @@ st.write(f"You are interested in {ids}")
 
 if st.button('Send summary', type="primary"):
     send_email(ids, title)
+    time.sleep(5)
     st.success('Mail sendt', icon="✅")
 
 
