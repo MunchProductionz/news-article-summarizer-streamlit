@@ -7,7 +7,8 @@ articles = get_articles()
 today_date = datetime.today().strftime('%Y-%m-%d')
 today_weekday = datetime.today().strftime('%A')
 
-st.title(f'News Summarizer: {today_weekday} {today_date}')
+st.title('News Summarizer')
+st.write(f"{today_date} ({today_weekday})")
 
 articles_df = pd.DataFrame(articles)
 articles_display_df = articles_df[["id", "title", "category", "bullet_points"]].copy()
