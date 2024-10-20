@@ -5,8 +5,7 @@ from datetime import datetime
 
 articles = get_articles()
 
-print(articles[0]['created_at'])
-created_date = datetime.strptime(articles[0]["created_at"], "%Y-%m-%dT%H:%M:%S")
+created_date = datetime.strptime(articles[0]["created_at"], "%Y-%m-%dT%H:%M:%S.%f")
 created_date_time = created_date.strftime("%Y-%m-%d %H:%M:%S")
 created_date_weekday = created_date.strftime("%A")
 days_ago = (datetime.today() - created_date).days
