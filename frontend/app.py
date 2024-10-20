@@ -4,12 +4,19 @@ import pandas as pd
 from datetime import datetime
 
 articles = get_articles()
+
 created_date = datetime.strptime(articles[0]["created_at"], "%Y-%m-%d %H:%M:%S")
+created_date_time = created_date.strftime("%Y-%m-%d %H:%M:%S")
 created_date_weekday = created_date.strftime("%A")
 days_ago = (datetime.today() - created_date).days
+created_date_extra_string = ""
+if days_ago == 0:
+    created_date_extra_string = "(Today)"
+else:
+    created_date_extra_string = f"({created_date_weekday}), which is {days_ago} days ago"
 
 st.title('News Summarizer')
-st.write(f"Retrieved {created_date} ({created_date_weekday}), which is {days_ago} days ago")
+st.write(f"Retrieved {created_date_time} {created_date_extra_string}")
 
 articles_df = pd.DataFrame(articles)
 articles_display_df = articles_df[["id", "title", "category", "bullet_points"]].copy()
