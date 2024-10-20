@@ -21,7 +21,7 @@ for index, row in articles_display_df.iterrows():
 
     bullet_points_list = row["bullet_points"].split("|")
     for point in bullet_points_list:
-        container.write(st.text(f"* {point.strip()}\n"))
+        container.text(f"* {point.strip()}\n")
 
     st.checkbox("Interested", key=row["id"])
 
