@@ -1,11 +1,13 @@
 from client import get_articles, send_email
 import streamlit as st
 import pandas as pd
-import time
+from datetime import datetime
 
 articles = get_articles()
+today_date = datetime.today().strftime('%Y-%m-%d')
+today_weekday = datetime.today().strftime('%A')
 
-st.title('News Summarizer')
+st.title(f'News Summarizer: {today_weekday} {today_date}')
 
 articles_df = pd.DataFrame(articles)
 articles_display_df = articles_df[["id", "title", "category", "bullet_points"]].copy()
@@ -35,7 +37,6 @@ st.write(f"You are interested in {ids}")
 
 if st.button('Send summary', type="primary"):
     send_email(ids, title)
-    time.sleep(5)
-    st.success('Mail sendt', icon="✅")
+    st.success('Mail sendt - Gi den 1-2 min og sjekk søppelpost', icon="✅")
 
 
