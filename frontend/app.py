@@ -13,9 +13,6 @@ articles_df = pd.DataFrame(articles)
 articles_display_df = articles_df[["id", "title", "category", "bullet_points"]].copy()
 articles_display_df['include'] = False
 
-#summary_df = edited_df[edited_df["include_in_summary"]]
-#ids = articles_df.loc[summary_df.index, "id"].tolist()
-
 ids = []
 
 for index, row in articles_display_df.iterrows():
