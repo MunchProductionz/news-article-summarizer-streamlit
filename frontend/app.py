@@ -16,7 +16,7 @@ else:
     created_date_extra_string = f"({created_date_weekday}), which is {days_ago} days ago"
 
 st.title('News Summarizer')
-st.write(f"Retrieved {created_date_time} {created_date_extra_string}")
+st.write(f"Retrieved {created_date_time} GMT {created_date_extra_string}")
 
 articles_df = pd.DataFrame(articles)
 articles_display_df = articles_df[["id", "title", "category", "bullet_points"]].copy()
